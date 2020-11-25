@@ -13,6 +13,22 @@
 // verify("   (      [)") -> 0
 
 
+
+// Solution Task 1
+
+
+const verify = (str) => {
+    let arrStr = str.split('')
+    let resultBrackets = []
+    for(let i = 0; i < arrStr.length; i++){
+        if(arrStr[i] === '(' || arrStr[i] === '[' || arrStr[i] === '<') resultBrackets.push(arrStr[i])
+        else if(arrStr[i] === ')' && resultBrackets.pop() !== '(') return false
+        else if(arrStr[i] === ']' && resultBrackets.pop() !== '[') return false
+        else if(arrStr[i] === '>' && resultBrackets.pop() !== '<') return false
+    }
+    return true
+}
+
 // 2) Task #2
 // Problem
 // Simplify the implementation below as much as you can.
